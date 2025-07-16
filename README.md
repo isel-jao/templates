@@ -1,32 +1,69 @@
-# Project Templates Repository
+# React + TypeScript + Vite
 
-This repository is designed to store and maintain templates for various types of projects, including frontend, backend, and service architectures.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## How This Repository Works
-`
-- **`main` branch:** Contains only this README file. No template code is present here.
-- **Template branches:** Each project template has its own dedicated branch (e.g., `react-with-vite-shadcn`, `express-api-template`, etc.).
+Currently, two official plugins are available:
 
-## Why This Structure?
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-- **Separation:** Each template is isolated in its own branch, avoiding conflicts and making maintenance easier.
-- **Clarity:** The main branch remains clean, serving as a landing page and guide for repository usage.
-- **Scalability:** Easily add new templates by creating new branches without affecting existing ones.
+## Expanding the ESLint configuration
 
-## Available Templates
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-- `react-with-vite-shadcn`: React + Vite + shadcn/ui starter
-- *(More templates coming soon!)*
+```js
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## How to Use a Template
+      // Remove tseslint.configs.recommended and replace with this
+      ...tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      ...tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      ...tseslint.configs.stylisticTypeChecked,
 
-1. **List all branches:**
-   ```sh
-   git branch -r
-   ```
-2. **Checkout the desired template branch:**
-   ```sh
-   git checkout origin/<template-branch-name> -b my-new-project
-   ```
-3. **Start building your project!**
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default tseslint.config([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
