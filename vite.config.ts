@@ -12,16 +12,15 @@ export default defineConfig({
     tailwindcss(),
     svgr(),
     obfuscatorPlugin({
-      // options passed to javascript-obfuscator
+      include: ["src/path/to/file.js", "path/anyjs/**/*.js", /foo.js$/],
+      exclude: [/node_modules/],
+      apply: "build",
+      debugger: true,
       options: {
-        compact: true,
-        controlFlowFlattening: true,
-        controlFlowFlatteningThreshold: 0.75,
-        deadCodeInjection: true,
-        debugProtection: false,
-        disableConsoleOutput: true,
-        identifierNamesGenerator: "hexadecimal",
-        stringArrayEncoding: ["base64"],
+        /** your javascript-obfuscator options */
+        // compact: true,
+        // controlFlowFlattening: false,
+        // ...  [See more options](https://github.com/javascript-obfuscator/javascript-obfuscator)
       },
     }),
   ],
