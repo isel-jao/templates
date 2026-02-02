@@ -112,6 +112,13 @@
 
 
 @layer base {
+
+  :root,
+  body,
+  main {
+    height: 100%;
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -119,13 +126,20 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  button,
+  select,
+  [role="button"],
+  [role="tab"] {
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .container {
+    @apply mx-auto;
+  }
 }
 
-:root,
-body,
-main {
-  height: 100%;
-}
 
 .debug {
   border: 1px solid var(--color-red-500, red) !important;
@@ -148,17 +162,6 @@ main {
   }
 }
 
-button,
-select,
-[role="button"],
-[role="tab"] {
-  user-select: none;
-  cursor: pointer;
-}
-
-.container {
-  @apply mx-auto;
-}
 
 @media (prefers-reduced-motion: reduce) {
   .animate {

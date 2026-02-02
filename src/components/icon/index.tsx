@@ -1,34 +1,21 @@
-import React from "react";
-import BombIcon from "@/assets/icons/bomb.svg?react";
+import { icons, type IconComponent, type IconName } from "./icons";
+import FallbackIcon from "./fallback.svg?react";
 import { Suspense } from "react";
+export { type IconName } from "./icons";
 
-const WebHookIcon = React.lazy(
-  () => import("@/assets/icons/webhook.svg?react"),
-);
-const CogIcon = React.lazy(() => import("@/assets/icons/cog.svg?react"));
-const UserIcon = React.lazy(() => import("@/assets/icons/user.svg?react"));
-
-const iconsMap = {
-  webhook: WebHookIcon,
-  cog: CogIcon,
-  user: UserIcon,
-} as const;
-
-interface IconProps extends React.HTMLAttributes<SVGElement> {
-  name: string;
+export interface IconProps extends React.SVGProps<SVGSVGElement> {
+  name: IconName;
 }
 
 export function Icon({ name, ...props }: IconProps) {
-  const FallbackIcon = () => <BombIcon {...props} />;
-  const IconComponent = iconsMap[name as keyof typeof iconsMap];
-
+  const IconComponent = icons.get(name) as unknown as IconComponent | undefined;
   if (IconComponent) {
     return (
-      <Suspense fallback={<FallbackIcon />}>
+      <Suspense fallback={<FallbackIcon {...props} />}>
         <IconComponent {...props} />
       </Suspense>
     );
   }
 
-  return <FallbackIcon />;
+  return <FallbackIcon {...props} />;
 }

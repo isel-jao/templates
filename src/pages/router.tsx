@@ -1,7 +1,7 @@
-import { config } from "@/config";
 import { lazy, Suspense } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import LoadingPage from "@/pages/loading";
+import { env } from "@/config/env";
 
 const GlobalLayout = lazy(() => import("@/pages/layout"));
 const LoginPage = lazy(() => import("@/pages/public/login"));
@@ -21,7 +21,7 @@ export default function Router() {
             </Route>
             <Route path="/login" element={<LoginPage />} />
             <Route path="*" element={<NotFoundPage />} />
-            {config.environment === "development" && (
+            {env.VITE_NODE_ENV === "development" && (
               <Route path="/dev" element={<DevPage />} />
             )}
           </Route>

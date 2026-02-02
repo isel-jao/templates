@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import React from "react";
 import { twMerge } from "tailwind-merge";
-import { Icon } from "@/components/icon";
+import { Icon, type IconName } from "@/components/icon";
 
 export default function DevPage() {
   return (
@@ -52,7 +52,7 @@ export function IconDemo({ className, children, ...props }: IconDemoProps) {
     <div className={twMerge("flex gap-4", className)} {...props}>
       <Icon name="user" />
       <Icon name="cog" />
-      <Icon name="bell" />
+      <Icon name={"bell" as IconName} />
       {children}
     </div>
   );

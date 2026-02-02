@@ -1,3 +1,3 @@
 export default function HomePage() {
-  return <main className="container">HomePage</main>;
+  return <main className="container flex gap-2">HomePage</main>;
 }
