@@ -8,12 +8,12 @@ export default function GlobalLayout() {
       <Toaster
         richColors
         toastOptions={{
-          className: "!bg-card border",
+          className: "!bg-card border border-current!",
           classNames: {
-            success: "!text-green-400 !border-green-400",
-            error: "!text-red-400 !border-red-400",
-            loading: "!text-yellow-400 !border-yellow-400",
-            info: "!text-blue-400 !border-blue-400",
+            success: "text-success!",
+            error: "text-destructive!",
+            loading: "text-primary!",
+            info: "text-info!",
           },
         }}
       />

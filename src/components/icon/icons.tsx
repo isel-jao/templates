@@ -4,16 +4,11 @@ export type IconComponent = React.LazyExoticComponent<
   ComponentType<SVGProps<SVGSVGElement>>
 >;
 
-const WebHookIcon = React.lazy(
-  () => import("@/assets/icons/webhook.svg?react"),
-);
-const CogIcon = React.lazy(() => import("@/assets/icons/cog.svg?react"));
-const UserIcon = React.lazy(() => import("@/assets/icons/user.svg?react"));
-
 export const data = {
-  webhook: WebHookIcon,
-  cog: CogIcon,
-  user: UserIcon,
+  webhook: React.lazy(() => import("@/assets/icons/webhook.svg?react")),
+  cog: React.lazy(() => import("@/assets/icons/cog.svg?react")),
+  user: React.lazy(() => import("@/assets/icons/user.svg?react")),
+  sun: React.lazy(() => import("@/assets/icons/sun.svg?react")),
 } as const;
 
 export type IconName = keyof typeof data;

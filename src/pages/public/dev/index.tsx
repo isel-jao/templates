@@ -53,6 +53,7 @@ export function IconDemo({ className, children, ...props }: IconDemoProps) {
       <Icon name="user" />
       <Icon name="cog" />
       <Icon name={"bell" as IconName} />
+      <Icon name="sun" />
       {children}
     </div>
   );
