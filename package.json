@@ -1,0 +1,18 @@
+{
+  "name": "session-auth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Session authentication ",
+  "scripts": {
+    "clean": "rm -rf node_modules */*/node_modules .turbo */**/.turbo */**/dist  */**/.tsbuildinfo",
+    "build": "turbo run build",
+    "dev": "turbo run dev"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.18.0",
+  "devDependencies": {
+    "turbo": "^2.3.3"
+  }
+}
