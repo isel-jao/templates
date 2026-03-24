@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "email": "superadmin@example.com",
+      "name": "Super Admin",
+      "passwordHash": "$2a$10$zDQRQJ6o3AS93EJjz1K00..Ayv7hq/6L.RL9X3uWtdutvk0/srYp6",
+      "role": "superadmin",
+      "tenantId": null,
+      "id": "g26rxwgrdOGrdUe5ZED9_",
+      "createdAt": "2026-03-24T22:34:36.469Z",
+      "updatedAt": "2026-03-24T22:34:36.469Z"
+    },
+    {
+      "email": "admin@example.com",
+      "name": "Admin",
+      "passwordHash": "$2a$10$4e7JL3O37z0ragZoAeVwH.hGOGZyJUaXZZ6fFspUji4PzebQALOVy",
+      "role": "admin",
+      "tenantId": "ZYe9pmHvvEUz_90Q80RQJ",
+      "id": "yxUWsMdduZJiSXm0H2km5",
+      "createdAt": "2026-03-24T22:34:36.524Z",
+      "updatedAt": "2026-03-24T22:34:36.524Z"
+    },
+    {
+      "email": "user@example.com",
+      "name": "Regular User",
+      "passwordHash": "$2a$10$fun5NiZIFVkDamTH3vYnPeTphmoC80zlhNst.IofaFhNJzhU306Ei",
+      "role": "user",
+      "tenantId": "ZYe9pmHvvEUz_90Q80RQJ",
+      "id": "Vl4YqpSD3svaO1t01O-it",
+      "createdAt": "2026-03-24T22:34:36.579Z",
+      "updatedAt": "2026-03-24T22:34:36.579Z"
+    }
+  ],
+  "tenants": [
+    {
+      "name": "Acme Corp",
+      "slug": "acme",
+      "id": "ZYe9pmHvvEUz_90Q80RQJ",
+      "createdAt": "2026-03-24T22:34:36.409Z",
+      "updatedAt": "2026-03-24T22:34:36.409Z"
+    }
+  ],
+  "sessions": []
+}

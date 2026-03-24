@@ -1,0 +1,22 @@
+{
+  "name": "@repo/grpc-auth",
+  "version": "0.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@grpc/grpc-js": "^1.11.3",
+    "@grpc/proto-loader": "^0.7.13"
+  },
+  "devDependencies": {
+    "@repo/tsconfig": "workspace:*",
+    "@types/node": "^22.9.0",
+    "typescript": "^5.6.3"
+  }
+}
